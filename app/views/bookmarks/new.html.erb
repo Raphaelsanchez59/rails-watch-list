@@ -1,9 +1,17 @@
-<h1>Add a movie to <%= @list.name %></h1>
+<div class="container mt-5" style="max-width: 600px;">
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h1 class="h3 fw-bold mb-4">Add a movie to <%= @list.name %></h1>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie %>
-  <%= f.input :comment %>
-  <%= f.submit "Add bookmark" %>
-<% end %>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.association :movie, prompt: "Select a movie" %>
+        <%= f.input :comment, placeholder: "Add your comment about this movie..." %>
 
-<%= link_to "Back to list", list_path(@list) %>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <%= link_to "Back to list", list_path(@list), class: "btn btn-outline-secondary" %>
+          <%= f.submit "Add movie", class: "btn btn-success text-white" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -23,6 +23,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <nav class="navbar navbar-expand-sm navbar-light bg-light px-4 mb-3">
+  <%= link_to lists_path, class: "navbar-brand" do %>
+    <i class="fa-solid fa-film"></i>
+  <% end %>
+
+  <div class="ms-auto d-flex gap-3">
+    <%= link_to "My lists", lists_path, class: "nav-link" %>
+    <%= link_to "New list", new_list_path, class: "nav-link" %>
+  </div>
+</nav>
+
   <body>
     <%= yield %>
   </body>

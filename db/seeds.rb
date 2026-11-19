@@ -4,20 +4,11 @@
 #
 # Example:
 
-Movie.find_or_create_by!(title: "Wonder Woman 1984") do |movie|
-  movie.overview = "Wonder Woman comes into conflict with the Soviet union during the Cold War in the 1980s"
-end
-
-Movie.find_or_create_by!(title: "The Shawshank Redemption") do |movie|
-  movie.overview = "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison"
-end
-
-Movie.find_or_create_by!(title: "Titanic") do |movie|
-  movie.overview = "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic."
-end
-
-Movie.find_or_create_by!(title: "Ocean's Eight") do |movie|
-  movie.overview = "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century."
+20.times do
+  title = Faker::Movie.unique.title
+  Movie.find_or_create_by!(title: title) do |movie|
+    movie.overview = Faker::Lorem.paragraph(sentence_count: 3)
+  end
 end
 
 #

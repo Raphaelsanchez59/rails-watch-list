@@ -1,9 +1,31 @@
-<h1>My Lists</h1>
+<div class="p-5 mb-4 text-center text-white d-flex align-items-center justify-content-center"
+    style="min-height: 280px; background-size: cover; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.coze.fr/wp-content/uploads/2021/04/cinema-004.jpg');">
+  <div>
+    <h1 class="fw-bold mb-2">Save any kind of movies</h1>
+    <p class="mb-0 text-light">Classic</p>
+  </div>
+</div>
 
-<%= link_to "Create a movie list", new_list_path %>
+<div class="container mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">My Lists</h2>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-success text-white" %>
+  </div>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+  <div class="row g-4">
+    <% @lists.each do |list| %>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card bg-dark text-white h-100 position-relative"
+            style="min-height: 160px; background-size: cover; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45));">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <%= link_to list.name, list_path(list), class: "h5 card-title mb-0 fw-bold text-white text-decoration-none stretched-link" %>
+          </div>
+
+          <%= link_to "delete", list_path(list),
+            data: { turbo_method: :delete, turbo_confirm: "Delete '#{list.name}'?" },
+            class: "btn btn-sm btn-danger text-white position-relative z-2 m-2 align-self-end" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
