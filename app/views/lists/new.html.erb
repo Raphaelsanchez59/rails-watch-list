@@ -1,16 +1,18 @@
-<div class="container mt-5" style="max-width: 600px;">
-  <div class="card shadow-sm">
-    <div class="card-body p-4">
-      <h1 class="h3 fw-bold mb-4">New List</h1>
+<div class="min-vh-100 d-flex align-items-center justify-content-center py-5 text-white" style="background-size: cover; background-position: center; background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKWOfPTh6Wig2HCeLlW-Y_mpN9vIZ90t9cDuCe2iosng&s=10');">
+  <div class="container" style="max-width: 600px;">
+    <div class="card bg-dark text-white border-secondary shadow-lg">
+      <div class="card-body p-4">
+        <h1 class="h3 fw-bold mb-4">New List</h1>
 
-      <%= simple_form_for @list do |f| %>
-        <%= f.input :name, placeholder: "e.g. Drama, Classics, Sci-Fi..." %>
+        <%= simple_form_for @list do |f| %>
+          <%= f.input :name, placeholder: "Drame, Science-Fiction, Comedie...", input_html: { class: "form-control bg-black border-secondary" } %>
 
-        <div class="d-flex justify-content-between align-items-center mt-4">
-          <%= link_to "Back to lists", lists_path, class: "btn btn-outline-secondary" %>
-          <%= f.submit "Create List", class: "btn btn-success text-white" %>
-        </div>
-      <% end %>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <%= link_to "Back to lists", lists_path, class: "btn btn-outline-light" %>
+            <%= f.submit "Create List", class: "btn btn-success text-white" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
